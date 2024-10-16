@@ -46,7 +46,7 @@
     <com.io7m.zelador.version>1.0.0</com.io7m.zelador.version>
 
     <!-- Third-party dependencies. -->
-    <ch.qos.logback.version>1.5.10</ch.qos.logback.version>
+    <ch.qos.logback.version>1.5.11</ch.qos.logback.version>
     <net.jqwik.version>1.9.1</net.jqwik.version>
     <org.immutables.version>2.10.1</org.immutables.version>
     <org.jooq.version>3.19.10</org.jooq.version>

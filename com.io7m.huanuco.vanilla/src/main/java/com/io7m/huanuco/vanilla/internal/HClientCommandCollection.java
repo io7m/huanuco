@@ -70,6 +70,7 @@ public final class HClientCommandCollection
     collection.register(new HCmdCreatePresignedGetF());
     collection.register(new HCmdCreatePresignedPutF());
     collection.register(new HCmdGetObjectF());
+    collection.register(new HCmdHeadObjectF());
     collection.register(new HCmdListBucketsF());
     collection.register(new HCmdListObjectsF());
     collection.register(new HCmdPutObjectF());

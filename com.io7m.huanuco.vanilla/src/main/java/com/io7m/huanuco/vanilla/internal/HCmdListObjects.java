@@ -73,7 +73,7 @@ public final class HCmdListObjects
 
       return HListObjectsResponse.builder()
         .setContents(contentsOf(response.contents()))
-        .setDelimiter(response.delimiter())
+        .setDelimiter(Optional.ofNullable(response.delimiter()).orElse(""))
         .setEncoding(Optional.ofNullable(response.encodingTypeAsString()).orElse("UTF-8"))
         .setMaximumKeys(response.maxKeys())
         .setName(response.name())

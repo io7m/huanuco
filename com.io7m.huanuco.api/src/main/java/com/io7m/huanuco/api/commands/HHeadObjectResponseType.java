@@ -15,30 +15,43 @@
  */
 
 
-package com.io7m.huanuco.api;
+package com.io7m.huanuco.api.commands;
 
-import com.io7m.huanuco.api.commands.HCreatePresignedGetType;
-import com.io7m.huanuco.api.commands.HCreatePresignedPutType;
-import com.io7m.huanuco.api.commands.HGetObjectType;
-import com.io7m.huanuco.api.commands.HHeadObjectType;
-import com.io7m.huanuco.api.commands.HListBucketsType;
-import com.io7m.huanuco.api.commands.HListObjectsType;
-import com.io7m.huanuco.api.commands.HPutObjectType;
+import com.io7m.immutables.styles.ImmutablesStyleType;
+import org.immutables.value.Value;
+
+import java.util.Map;
+import java.util.Optional;
 
 /**
- * The type of S3 commands supported by the client.
- *
- * @param <R> The type of returned values
+ * A response to HeadObject.
  */
 
-public sealed interface HClientCommandType<R>
-  permits HCreatePresignedGetType,
-  HCreatePresignedPutType,
-  HGetObjectType,
-  HHeadObjectType,
-  HListBucketsType,
-  HListObjectsType,
-  HPutObjectType
+@ImmutablesStyleType
+@Value.Immutable
+public interface HHeadObjectResponseType
 {
+  /**
+   * @return The object size
+   */
 
+  long size();
+
+  /**
+   * @return The content type
+   */
+
+  String contentType();
+
+  /**
+   * @return The Base64 encoded hash
+   */
+
+  Optional<String> sha256();
+
+  /**
+   * @return The object metadata
+   */
+
+  Map<String, String> metadata();
 }

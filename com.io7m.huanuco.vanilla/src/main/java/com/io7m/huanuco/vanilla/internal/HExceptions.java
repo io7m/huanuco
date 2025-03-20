@@ -22,6 +22,7 @@ import software.amazon.awssdk.services.s3.model.S3Exception;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 final class HExceptions
 {
@@ -40,10 +41,13 @@ final class HExceptions
       case final S3Exception ee -> {
         final var details = ee.awsErrorDetails();
         attributes.put("Service", details.serviceName());
+        final var errorCode =
+          Objects.requireNonNullElse(details.errorCode(), "error-unknown");
+
         yield new HException(
           e.getMessage(),
           e,
-          details.errorCode(),
+          errorCode,
           Map.copyOf(attributes)
         );
       }

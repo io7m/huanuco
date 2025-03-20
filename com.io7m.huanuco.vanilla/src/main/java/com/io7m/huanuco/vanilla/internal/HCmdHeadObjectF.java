@@ -15,30 +15,40 @@
  */
 
 
-package com.io7m.huanuco.api;
+package com.io7m.huanuco.vanilla.internal;
 
-import com.io7m.huanuco.api.commands.HCreatePresignedGetType;
-import com.io7m.huanuco.api.commands.HCreatePresignedPutType;
-import com.io7m.huanuco.api.commands.HGetObjectType;
-import com.io7m.huanuco.api.commands.HHeadObjectType;
-import com.io7m.huanuco.api.commands.HListBucketsType;
-import com.io7m.huanuco.api.commands.HListObjectsType;
-import com.io7m.huanuco.api.commands.HPutObjectType;
+import com.io7m.huanuco.api.commands.HHeadObject;
+import com.io7m.huanuco.api.commands.HHeadObjectResponse;
 
 /**
- * The type of S3 commands supported by the client.
- *
- * @param <R> The type of returned values
+ * A command factory.
  */
 
-public sealed interface HClientCommandType<R>
-  permits HCreatePresignedGetType,
-  HCreatePresignedPutType,
-  HGetObjectType,
-  HHeadObjectType,
-  HListBucketsType,
-  HListObjectsType,
-  HPutObjectType
+public final class HCmdHeadObjectF
+  implements HClientCommandFactoryType<
+  HHeadObjectResponse,
+  HHeadObject>
 {
+  /**
+   * A command factory.
+   */
 
+  public HCmdHeadObjectF()
+  {
+
+  }
+
+  @Override
+  public Class<HHeadObject> commandClass()
+  {
+    return HHeadObject.class;
+  }
+
+  @Override
+  public HCmdExecutableType<HHeadObjectResponse> createCommand(
+    final HClient client,
+    final HHeadObject parameters)
+  {
+    return new HCmdHeadObject(client, parameters);
+  }
 }

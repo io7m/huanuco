@@ -51,7 +51,7 @@
     <org.immutables.version>2.10.1</org.immutables.version>
     <org.jooq.version>3.19.10</org.jooq.version>
     <org.junit.version>5.12.2</org.junit.version>
-    <org.slf4j.version>2.0.16</org.slf4j.version>
+    <org.slf4j.version>2.0.17</org.slf4j.version>
     <software.amazon.awssdk.version>2.27.8</software.amazon.awssdk.version>
 
     <containers.minio.version>RELEASE.2024-08-03T04-33-23Z</containers.minio.version>
